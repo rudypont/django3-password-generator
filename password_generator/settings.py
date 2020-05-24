@@ -25,8 +25,7 @@ SECRET_KEY = 'o2am1hls+j_ot5x4*#&wfdc4+r65bs%hr-z2s#^#&#43@-8iq-choco-nog-meer-c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['rudypont.pythonanywhere.com']
 
 # Application definition
 
