@@ -1,13 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import random
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def home(request):
     return render(request, 'generator/home.html')
 
-def about(request):
-    return render(request, 'generator/about.html')
+def selectfile(request):
+    return render(request, 'generator/selectfile.html')
+
+def upload(request):
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        fs = FileSystemStorage()
+        if fs.exists(uploaded_file.name):
+            print('File exists. Deleting...')
+            fs.delete(uploaded_file.name)
+        fs.save(uploaded_file.name, uploaded_file)
+    return render(request, 'generator/upload.html')
 
 def password(request):
 

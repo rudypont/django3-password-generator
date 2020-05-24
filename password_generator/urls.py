@@ -16,8 +16,15 @@ Including another URLconf
 from django.urls import path
 from generator import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('password/', views.password, name='password'),
-    path('about/', views.about, name='about'),
+    path('selectfile/', views.selectfile, name='selectfile'),
+    path('upload/', views.upload, name='upload'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
