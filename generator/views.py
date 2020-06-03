@@ -18,6 +18,8 @@ def upload(request):
             print('File exists. Deleting...')
             fs.delete(uploaded_file.name)
         fs.save(uploaded_file.name, uploaded_file)
+        ds = Dailystand
+        ds.save
     return render(request, 'generator/upload.html')
 
 def password(request):
